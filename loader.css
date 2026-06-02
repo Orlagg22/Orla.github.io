@@ -1,0 +1,116 @@
+/* LOADER.CSS */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.loader-wrapper.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
+#lightningLoader { position: absolute; inset: 0; width: 100%; height: 100%; }
+.loader-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.loader-logo {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  letter-spacing: 0.2em;
+  color: var(--clr-accent);
+  text-shadow: var(--glow);
+  animation: logoPulse 1.5s ease-in-out infinite;
+}
+.loader-logo .bracket { color: rgba(0,240,255,0.5); }
+.loader-glitch {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 8rem);
+  letter-spacing: 0.3em;
+  color: var(--clr-accent);
+  position: relative;
+  text-shadow: 0 0 40px rgba(0,240,255,0.6);
+  animation: glitchAnim 3s infinite;
+}
+.loader-glitch::before,
+.loader-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+.loader-glitch::before {
+  color: #ff0055;
+  transform: translateX(-3px);
+  animation: glitchBefore 3s infinite;
+}
+.loader-glitch::after {
+  color: #00f0ff;
+  transform: translateX(3px);
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  animation: glitchAfter 3s infinite;
+}
+.loader-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.loader-bar-wrap {
+  width: 300px;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  position: relative;
+  overflow: visible;
+}
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--grad-electric);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 12px var(--clr-accent);
+}
+.loader-percent {
+  position: absolute;
+  right: -40px;
+  top: -8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--clr-accent);
+}
+.loader-code {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(0,240,255,0.5);
+  letter-spacing: 0.05em;
+  min-height: 1.2em;
+  animation: fadeCodeIn 0.3s ease;
+}
+@keyframes logoPulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+@keyframes glitchAnim {
+  0%,90%,100%{transform:translate(0)}
+  91%{transform:translate(-2px,1px)}
+  93%{transform:translate(2px,-1px)}
+  95%{transform:translate(-1px,2px)}
+  97%{transform:translate(1px,-2px)}
+}
+@keyframes glitchBefore {
+  0%,88%,100%{opacity:0;transform:translateX(-3px)}
+  89%{opacity:1;transform:translateX(-6px)}
+  91%{opacity:0}
+}
+@keyframes glitchAfter {
+  0%,92%,100%{opacity:0;transform:translateX(3px)}
+  93%{opacity:1;transform:translateX(6px)}
+  95%{opacity:0}
+}
+@keyframes fadeCodeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }

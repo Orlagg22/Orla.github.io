@@ -1,0 +1,23 @@
+/* VARIABLES.CSS */
+:root {
+  --clr-bg: #030712;
+  --clr-bg2: #0a0f1e;
+  --clr-surface: rgba(15, 23, 42, 0.8);
+  --clr-border: rgba(0, 240, 255, 0.15);
+  --clr-accent: #00f0ff;
+  --clr-accent2: #0066ff;
+  --clr-accent3: #7c3aed;
+  --clr-text: #e2e8f0;
+  --clr-text-muted: #64748b;
+  --grad-accent: linear-gradient(135deg, #00f0ff, #0066ff);
+  --grad-electric: linear-gradient(135deg, #00f0ff 0%, #0066ff 50%, #7c3aed 100%);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-ui: 'Rajdhani', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --section-pad: 120px;
+  --container-max: 1200px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --glow: 0 0 20px rgba(0, 240, 255, 0.4);
+  --glow-lg: 0 0 60px rgba(0, 240, 255, 0.2);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
